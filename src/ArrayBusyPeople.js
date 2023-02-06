@@ -55,4 +55,4 @@ class ArrayBusyPeople {
     }
 }
 
-module.export = {ArrayBusyPeople}
+module.exports = ArrayBusyPeople
