@@ -1,7 +1,7 @@
 # Data Structures
 
-A Data Structures library make with JavaScript and CommonJS.
+A library of data structures built with JavaScript and CommonJS.
 
-It's primary based on David Mount class notes.
+It is primary based on David Mount's lecture notes.
 
 Under construction.
