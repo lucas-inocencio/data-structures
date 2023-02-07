@@ -1,4 +1,4 @@
-# Data-Structures
+# Data Structures
 
 A Data Structures library make with JavaScript and CommonJS.
 
