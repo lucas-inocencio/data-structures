@@ -21,6 +21,12 @@ class Expect {
             assert(this.actual === expected);
         });
     }
+
+    toEqual(expected) {
+        it('should pass', () => {
+            assert(this.actual == expected);
+        });
+    }
     
     /**
      * Compare the actual value of attribute is greater than the argument.
