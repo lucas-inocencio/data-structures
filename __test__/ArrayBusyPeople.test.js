@@ -15,7 +15,7 @@ describe('ArrayBusyPeople Class test', () => {
         expect(biggerArrayBusyPeople.aux_array.length).toBe(512);
     });
 
-    it('should check if the position has already been set', function() {
+    it('should check if the position has already been defined', function() {
         const defaultArrayBusyPeople = new ArrayBusyPeople();
         expect(defaultArrayBusyPeople.isDefined(0)).toBe(false);
 
@@ -27,6 +27,11 @@ describe('ArrayBusyPeople Class test', () => {
         const defaultArrayBusyPeople = new ArrayBusyPeople();
         defaultArrayBusyPeople.set(0, 1);
         expect(defaultArrayBusyPeople.get(0)).toBe(1);
+        expect(defaultArrayBusyPeople.stack[0]).toBe(0);
+        expect(defaultArrayBusyPeople.aux_array[0]).toBe(0);
+
+        defaultArrayBusyPeople.set(0, 2);
+        expect(defaultArrayBusyPeople.get(0)).toBe(2);
     });
 
     it('should get value in main_array[position]', function() {
