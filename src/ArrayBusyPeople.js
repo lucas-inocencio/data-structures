@@ -6,8 +6,8 @@ class ArrayBusyPeople {
 
     /**
      * The command saves the value and sets the stack empty.
-     * @param {unsigned int} value the default value for the each element in the main_array.
-     * @param {unsigned int} length the max length of the main_array.
+     * @param {int} value the default value for the each element in the main_array.
+     * @param {int} length the max length of the main_array.
      */
     constructor(value = -1, length = 2**8) {
         this.main_array = new Uint32Array(length);
@@ -19,8 +19,8 @@ class ArrayBusyPeople {
     /**
      * The command test whether main_array[position] is already defined.
      * If not, define it. If it was defined, set main_array[position] ← value.
-     * @param {unsigned int} position position of the element.
-     * @param {unsigned int} value new value for the element.
+     * @param {int} position position of the element.
+     * @param {int} value new value for the element.
      */
     set(position, value) {
         if (this.isDefined(position)) this.main_array[position] = value;
@@ -33,7 +33,7 @@ class ArrayBusyPeople {
 
     /**
      * The command test whether main_array[position] is defined.
-     * @param {unsigned int} position 
+     * @param {int} position 
      * @returns If so, it returns the element. Otherwise it returns the default value.
      */
     get(position) {
@@ -42,7 +42,7 @@ class ArrayBusyPeople {
 
     /**
      * The command verify if element are defined.
-     * @param {unsigned int} position position of the element.
+     * @param {int} position position of the element.
      * @returns true if defined, false otherwise.
      */
     isDefined(position) {
