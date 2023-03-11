@@ -1,4 +1,5 @@
 /**
+ * 
  * Class that implements unit tests.
  * @class Expect
  */
@@ -13,19 +14,19 @@ class Expect {
     }
 
     /**
-     * Compare the actual value of attribute is equal to the argument.
+     * Compare the actual attribute object is same to the argument.
      * @param {*} expected Value to be compared.
      */
     toBe(expected) {
-        it('should pass', () => {
-            assert(this.actual === expected);
-        });
+        return assert(this.actual === expected);
     }
 
+    /**
+     * Compare the actual value of attribute is equal to the argument.
+     * @param {*} expected Value to be compared.
+     */
     toEqual(expected) {
-        it('should pass', () => {
-            assert(this.actual == expected);
-        });
+        return assert(deepEqual(this.actual, expected));
     }
     
     /**
@@ -33,9 +34,7 @@ class Expect {
      * @param {*} expected value to be compared.
      */
     toBeGreaterThan(expected) {
-        it('should pass', () => {
-            assert(this.actual > expected);
-        });
+        return assert(this.actual > expected);
     }
   
     /**
@@ -43,19 +42,15 @@ class Expect {
      * @param {*} expected value to be compared.
      */
     toBeLessThan(expected) {
-        it('should pass', () => {
-            assert(this.actual < expected);
-        });
+        return assert(this.actual < expected);
     }
     
     /**
      * Verify if the attribute exist.
+     * @returns {*} Return the object if exist.
      */
     toBeDefined() {
-        it('should pass', () => {
-            assert(typeof this.actual !== "undefined");
-        });
-        return this;
+        return assert(typeof this.actual !== "undefined");
     }
 }
 
@@ -63,6 +58,7 @@ class Expect {
 /**
  * Return the an created instance of object of class Expect to be tested.
  * @param {*} expected value to be compared.
+ * @returns {*} .
  */
 function expect(actual) {
     return new Expect(actual);
@@ -105,5 +101,38 @@ function assert(isTrue) {
         throw new Error();
     } 
 }
+/**
+ * 
+ * @param {*} actual
+ * @param {*} expected
+ * @returns 
+ */
+function deepEqual(actual, expected) {
+    if (actual === expected) {
+        return true;
+    }
+  
+    if (actual === null || typeof actual !== "object" ||
+        expected === null || typeof expected !== "object") {
+        return false;
+    }
+  
+    const keysActual = Object.keys(actual);
+    const keysExpected = Object.keys(expected);
+  
+    if (keysActual.length !== keysExpected.length) {
+        return false;
+    }
+  
+    for (let i = 0; i < keysActual.length; i++) {
+        const key = keysActual[i];
+  
+        if (!b.hasOwnProperty(key) || !deepEqual(actual[key], expected[key])) {
+            return false;
+        }
+    }
+  
+    return true;
+}
 
-module.exports = {Expect, expect, it, assert, describe}
+module.exports = {Expect, expect, it, assert, describe};
