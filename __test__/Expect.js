@@ -1,64 +1,64 @@
 const assert = require("assert");
 
 /**
- * A class that provides a set of assertion methods for unit testing.
+ * Provides a set of assertion methods for unit testing.
  */
 class Expect {
   /**
    * Constructs an instance of the Expect class.
-   * @param {*} actual - The original value to be tested.
+   * @param {*} valueToTest - The original value to be tested.
    */
-  constructor(actual) {
-    this.actual = actual;
+  constructor(valueToTest) {
+    this.valueToTest = valueToTest;
   }
 
   /**
-   * Asserts that the actual attribute is strictly equal to the expected value.
+   * Asserts that the valueToTest attribute is strictly equal to the expected value.
    * @param {*} expected - The value to compare to.
    */
   toBe(expected) {
-    assert.strictEqual(this.actual, expected);
+    assert.strictEqual(this.valueToTest, expected);
   }
 
   /**
-   * Asserts that the actual value of attribute is equal to the argument.
+   * Asserts that the valueToTest value of attribute is equal to the argument.
    * @param {*} expected - The value to compare to.
    */
   toEqual(expected) {
-    assert.deepStrictEqual(this.actual, expected);
+    assert.deepStrictEqual(this.valueToTest, expected);
   }
 
   /**
-   * Asserts that the actual value of attribute is greater than the argument.
+   * Asserts that the valueToTest value of attribute is greater than the argument.
    * @param {*} expected - The value to compare to.
    */
   toBeGreaterThan(expected) {
-    assert(this.actual > expected);
+    assert(this.valueToTest > expected);
   }
 
   /**
-   * Asserts that the actual value of attribute is less than the argument.
+   * Asserts that the valueToTest value of attribute is less than the argument.
    * @param {*} expected - The value to compare to.
    */
   toBeLessThan(expected) {
-    assert(this.actual < expected);
+    assert(this.valueToTest < expected);
   }
 
   /**
    * Asserts that the attribute is defined.
    */
   toBeDefined() {
-    assert.notStrictEqual(this.actual, undefined);
+    assert.notStrictEqual(this.valueToTest, undefined);
   }
 }
 
 /**
  * Returns a new instance of the Expect class to be tested.
- * @param {*} actual - The value to be tested.
+ * @param {*} valueToTest - The value to be tested.
  * @returns {Expect} A new instance of the Expect class.
  */
-function expect(actual) {
-  return new Expect(actual);
+function expect(valueToTest) {
+  return new Expect(valueToTest);
 }
 
 /**
@@ -85,4 +85,4 @@ function it(testName, testFunc) {
   }
 }
 
-module.exports = { Expect, describe, beforeEach, it, expect};
+module.exports = { Expect, describe, it, expect };

@@ -1,8 +1,4 @@
-const {
-  expect,
-  describe,
-  it
-} = require("../../__test__/Expect.js");
+const { expect, describe, it } = require("../../__test__/Expect.js");
 const { ArrayBusyPeople } = require("./ArrayBusyPeople.js");
 
 describe("ArrayBusyPeople", () => {
@@ -21,7 +17,7 @@ describe("ArrayBusyPeople", () => {
 
   describe("get()", () => {
     arr = new ArrayBusyPeople();
-    
+
     it("returns the value of a defined element in the array", () => {
       arr.set(0, 1);
       expect(arr.get(0)).toEqual(1);
