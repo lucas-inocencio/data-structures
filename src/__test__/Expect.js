@@ -50,6 +50,34 @@ class Expect {
   toBeDefined() {
     assert.notStrictEqual(this.valueToTest, undefined);
   }
+
+  /**
+   * Asserts that the attribute is defined.
+   */
+  toBeUndefined() {
+    assert.strictEqual(this.valueToTest, undefined);
+  }
+
+  /**
+   * Asserts that the function throw a error.
+   */
+  toThrow(expectedError) {
+    try {
+      func();
+    } catch (error) {
+      if (!expectedError) {
+        return true;
+      } else if (expectedError instanceof Error) {
+        return error instanceof expectedError;
+      } else if (typeof expectedError === "function") {
+        return error instanceof expectedError;
+      } else if (typeof expectedError === "string") {
+        return error.message === expectedError;
+      }
+    }
+
+    return false;
+  }
 }
 
 module.exports = Expect;

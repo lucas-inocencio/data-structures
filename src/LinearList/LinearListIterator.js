@@ -9,6 +9,7 @@ class LinearListIterator {
   constructor(linearList) {
     this.linearList = linearList;
     this.index = 0;
+    this.lastReturnedIndex = -1;
   }
 
   /**
@@ -24,9 +25,25 @@ class LinearListIterator {
    * @returns {*} The next element in the iteration.
    */
   next() {
+    if (!this.hasNext()) {
+      throw new Error("No more elements in the iteration");
+    }
     const element = this.linearList.get(this.index);
+    this.lastReturnedIndex = this.index;
     this.index++;
     return element;
+  }
+
+  /**
+   * Removes the last returned element from the underlying LinearList.
+   */
+  remove() {
+    if (this.lastReturnedIndex === -1) {
+      throw new Error("No element to remove");
+    }
+    this.linearList.delete(this.lastReturnedIndex);
+    this.index--;
+    this.lastReturnedIndex = -1;
   }
 }
 

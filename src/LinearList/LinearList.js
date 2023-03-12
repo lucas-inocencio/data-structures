@@ -68,7 +68,7 @@ class LinearList {
    * @returns {number} The index of the first occurrence of the value, or -1 if not found.
    */
   find(value) {
-    for (let index = 0; index < this.size(); index++) {
+    for (let index = 0; index < this.length(); index++) {
       if (this.elements[index] === value) {
         return index;
       }
@@ -81,13 +81,13 @@ class LinearList {
    * @returns {[LinearList, LinearList]} An array containing the two lists.
    */
   split() {
-    const middle = Math.floor(this.size() / 2);
+    const middle = Math.floor(this.length() / 2);
     const left = new LinearList();
     const right = new LinearList();
     for (let i = 0; i < middle; i++) {
       left.insert(i, this.get(i));
     }
-    for (let i = middle; i < this.size(); i++) {
+    for (let i = middle; i < this.length(); i++) {
       right.insert(i - middle, this.get(i));
     }
     return [left, right];

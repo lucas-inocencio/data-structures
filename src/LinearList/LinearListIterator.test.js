@@ -16,12 +16,12 @@ describe("LinearListIterator", () => {
       expect(iterator.next()).toBe("baz");
     });
 
-    it("should return undefined if there are no more elements", () => {
+    it("should throw an error if there are no more elements", () => {
       const iterator = new LinearListIterator(list);
       iterator.next();
       iterator.next();
       iterator.next();
-      expect(iterator.next()).toBeUndefined();
+      expect(() => iterator.next()).toThrow();
     });
   });
 
@@ -29,6 +29,7 @@ describe("LinearListIterator", () => {
     it("should return true if there are more elements", () => {
       const iterator = new LinearListIterator(list);
       expect(iterator.hasNext()).toBe(true);
+
       iterator.next();
       expect(iterator.hasNext()).toBe(true);
     });
