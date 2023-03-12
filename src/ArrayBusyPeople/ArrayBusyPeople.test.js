@@ -1,5 +1,5 @@
-const { expect, describe, it } = require("../../__test__/Expect.js");
-const { ArrayBusyPeople } = require("./ArrayBusyPeople.js");
+const { expect, describe, it } = require("../../__test__/unitTest.js");
+const  ArrayBusyPeople  = require("./ArrayBusyPeople.js");
 
 describe("ArrayBusyPeople", () => {
   let arr;

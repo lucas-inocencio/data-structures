@@ -1,92 +1,107 @@
 /**
  * Class that implements a Linear List data structure.
  */
-
 class LinearList {
+  /**
+   * Initialize an empty list.
+   */
+  constructor() {
+    this.elements = [];
+  }
 
-    /**
-     * Initialize an empty list.
-     */
-    constructor() {
-        this.list = [];
+  /**
+   * Sets the value of the element at the given index.
+   * @param {number} index The index of the element to be set.
+   * @param {*} value The new value for the element.
+   */
+  set(index, value) {
+    this.elements[index] = value;
+  }
+
+  /**
+   * Returns a new iterator for the list.
+   */
+  getIterator() {
+    return new LinearListIterator(this);
+  }
+
+  /**
+   * Returns the value of the element at the given index.
+   * @param {number} index The index of the element to be retrieved.
+   * @returns {*} The value of the element.
+   */
+  get(index) {
+    return this.elements[index];
+  }
+
+  /**
+   * Returns the number of elements in the list.
+   * @returns {number} The number of elements in the list.
+   */
+  length() {
+    return this.elements.length;
+  }
+
+  /**
+   * Inserts a new element with the given value at the specified index.
+   * Shifts the element currently at that index (if any) and any subsequent
+   * elements to the right (adds one to their indices).
+   * @param {number} index The index at which to insert the new element.
+   * @param {*} value The value of the new element to be inserted.
+   */
+  insert(index, value) {
+    this.elements.splice(index, 0, value);
+  }
+
+  /**
+   * Removes the element at the specified index.
+   * Shifts any subsequent elements to the left (subtracts one from their indices).
+   * @param {number} index The index of the element to be removed.
+   */
+  delete(index) {
+    this.elements.splice(index, 1);
+  }
+
+  /**
+   * Searches for the first occurrence of the given value in the list.
+   * @param {*} value The value to search for.
+   * @returns {number} The index of the first occurrence of the value, or -1 if not found.
+   */
+  find(value) {
+    for (let index = 0; index < this.size(); index++) {
+      if (this.elements[index] === value) {
+        return index;
+      }
     }
+    return -1;
+  }
 
-    /**
-     * Sets the Ith element to x.
-     * @param {int} index Index of the existed element to be replaced.
-     * @param {*} value New value for the element.
-     */
-    set(index, value) {
-        this.list[index] = value;
+  /**
+   * Splits the list into two lists at the middle index.
+   * @returns {[LinearList, LinearList]} An array containing the two lists.
+   */
+  split() {
+    const middle = Math.floor(this.size() / 2);
+    const left = new LinearList();
+    const right = new LinearList();
+    for (let i = 0; i < middle; i++) {
+      left.insert(i, this.get(i));
     }
-
-    /**
-     * Get the Ith elemnt.
-     * @param {int} index Index of the element.
-     * @returns {*} Returns element Ai.
-     */
-    get(index) {
-        return this.list[index];
+    for (let i = middle; i < this.size(); i++) {
+      right.insert(i - middle, this.get(i));
     }
+    return [left, right];
+  }
 
-    /**
-     * Return the length of the list.
-     * @returns {int} Return the length of the list.
-     */
-    length() {
-        return this.list.length;
-    }
-
-    /**
-     * Insert element x just prior to element Ai 
-     * (causing the index of all subsequentitems to be increased by one).
-     * @param {int} index index to be inserted before.
-     * @param {*} value Value to be added to the list.
-     */
-    insert(index, value) {
-        this.list.splice(index, 0, value);
-    }
-
-    /**
-     * Delete the ith element 
-     * (causing the indices of all subsequent elements to be decreased by 1).
-     * @param {int} index Index of element to be removed.
-     */
-    delete(index) {
-        delete this.list[index];
-    }
-
-    /**
-     * Searching the list for an item.
-     * @param {*} value Value to be finded.
-     * @returns {int} Returns the index of the item, false otherwise.
-     */
-    find(value) {
-        for (let index = 0; index < this.length(); index++) {
-            if (this.list[index] == value) {
-                return index
-            }
-        }
-
-        return false
-    }
-
-    /**
-     * Split the list in two based on middle.
-     * @returns {Array} Returns the two list spliteds.
-     */
-    split() {
-        const list_right = this.list.splice(this.length()/2, this.length());
-        return (this.list, list_right)
-    }
-
-    /**
-     * Concatenate the argument list at right of the actual list of the instance.
-     * @param {Array} list Listed to be concatenated.
-     */
-    concatenate(list) {
-        this.list.concat(list);
-    }
+  /**
+   * Concatenates the argument array at the end of the actual list of the instance.
+   * @param {Array} arrayToConcatenate The array to be concatenated.
+   * @returns {Array} The new concatenated array.
+   */
+  concatenate(arrayToConcatenate) {
+    this.elements = this.elements.concat(arrayToConcatenate);
+    return this.elements;
+  }
 }
 
-module.exports = LinearList
+module.exports = LinearList;
