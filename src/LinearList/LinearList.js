@@ -1,5 +1,5 @@
 /**
- * Class that implements a Linear List data structure.
+ * Class that implements a Linear List data structure with sequential allocation.
  */
 class LinearList {
   /**
