@@ -1,61 +1,54 @@
-const { expect, describe, it } = require("../__test__/unitTest.js");
+const { expect, describe, beforeEach, it } = require("../__test__/unitTest.js");
 const  ArrayBusyPeople  = require("./ArrayBusyPeople.js");
 
 describe("ArrayBusyPeople", () => {
-  let arr;
   describe("set()", () => {
-    arr = new ArrayBusyPeople();
-
     it("sets the value of an element in the array", () => {
-      arr.set(0, 1);
-      expect(arr.get(0)).toEqual(1);
-
-      arr.set(1, 2);
-      expect(arr.get(1)).toEqual(2);
+      const ABP = new ArrayBusyPeople();
+      ABP.set(0, 1);
+      ABP.set(1, 2);
+      expect(ABP.get(0)).toEqual(1);
+      expect(ABP.get(1)).toEqual(2);
     });
   });
 
   describe("get()", () => {
-    arr = new ArrayBusyPeople();
-
     it("returns the value of a defined element in the array", () => {
-      arr.set(0, 1);
-      expect(arr.get(0)).toEqual(1);
-
-      arr.set(1, 2);
-      expect(arr.get(1)).toEqual(2);
+      const ABP = new ArrayBusyPeople();
+      ABP.set(0, 1);
+      ABP.set(1, 2);
+      expect(ABP.get(0)).toEqual(1);
+      expect(ABP.get(1)).toEqual(2);
     });
 
-    arr = new ArrayBusyPeople();
-
     it("returns the default value for an undefined element", () => {
-      expect(arr.get(0)).toEqual(arr.defaultValue);
-      expect(arr.get(255)).toEqual(arr.defaultValue);
+      const ABP = new ArrayBusyPeople();
+      expect(ABP.get(0)).toEqual(ABP.defaultValue);
+      expect(ABP.get(255)).toEqual(ABP.defaultValue);
     });
   });
 
   describe("isDefined()", () => {
-    arr = new ArrayBusyPeople();
-
     it("returns true for a defined element", () => {
-      arr.set(0, 1);
-      expect(arr.isDefined(0)).toBe(true);
+      const ABP = new ArrayBusyPeople();
 
-      arr.set(255, 2);
-      expect(arr.isDefined(255)).toBe(true);
+      ABP.set(0, 1);
+      expect(ABP.isDefined(0)).toBe(true);
+
+      ABP.set(255, 2);
+      expect(ABP.isDefined(255)).toBe(true);
     });
-
-    arr = new ArrayBusyPeople();
 
     it("returns false for an undefined element", () => {
-      expect(arr.isDefined(0)).toBe(false);
-      expect(arr.isDefined(255)).toBe(false);
+      const ABP = new ArrayBusyPeople();
+
+      expect(ABP.isDefined(0)).toBe(false);
+      expect(ABP.isDefined(255)).toBe(false);
     });
 
-    arr = new ArrayBusyPeople();
-
     it("returns false for an out-of-bounds index", () => {
-      expect(arr.isDefined(256)).toBe(false);
+      const ABP = new ArrayBusyPeople();
+      expect(ABP.isDefined(256)).toBe(false);
     });
   });
 });
