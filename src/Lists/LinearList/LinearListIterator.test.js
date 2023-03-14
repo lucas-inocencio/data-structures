@@ -1,4 +1,4 @@
-const { expect, describe, it } = require("../__test__/unitTest.js");
+const { expect, describe, it } = require("../../../__test__/unitTest.js");
 const LinearListIterator = require("./LinearListIterator.js");
 const LinearList = require("./LinearList.js");
 

@@ -33,4 +33,4 @@ function it(testName, testFunc) {
   }
 }
 
-module.exports = { expect, describe, beforeEach, it };
+module.exports = { expect, describe, it };

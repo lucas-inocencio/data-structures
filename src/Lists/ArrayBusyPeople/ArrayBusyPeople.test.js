@@ -1,4 +1,4 @@
-const { expect, describe, beforeEach, it } = require("../__test__/unitTest.js");
+const { expect, describe, it } = require("../../../__test__/unitTest.js");
 const  ArrayBusyPeople  = require("./ArrayBusyPeople.js");
 
 describe("ArrayBusyPeople", () => {
@@ -7,8 +7,8 @@ describe("ArrayBusyPeople", () => {
       const ABP = new ArrayBusyPeople();
       ABP.set(0, 1);
       ABP.set(1, 2);
-      expect(ABP.get(0)).toEqual(1);
-      expect(ABP.get(1)).toEqual(2);
+      expect(ABP.mainArray[0]).toEqual(1);
+      expect(ABP.mainArray[1]).toEqual(2);
     });
   });
 
