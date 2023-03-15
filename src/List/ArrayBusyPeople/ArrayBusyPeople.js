@@ -61,4 +61,4 @@ class ArrayBusyPeople {
   }
 }
 
-module.exports = ArrayBusyPeople;
+module.exports = { ArrayBusyPeople };

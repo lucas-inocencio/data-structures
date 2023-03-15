@@ -7,7 +7,7 @@ class LinearList {
    * Initialize an empty list.
    */
   constructor() {
-    this.elements = LinearList.DEFAULT_ARRAY;
+    this.items = LinearList.DEFAULT_ARRAY;
   }
 
   /**
@@ -16,7 +16,7 @@ class LinearList {
    * @param {*} value The new value for the element.
    */
   set(index, value) {
-    this.elements[index] = value;
+    this.items[index] = value;
   }
 
   /**
@@ -25,36 +25,36 @@ class LinearList {
    * @returns {*} The value of the element.
    */
   get(index) {
-    return this.elements[index];
+    return this.items[index];
   }
 
   /**
-   * Returns the number of elements in the list.
-   * @returns {number} The number of elements in the list.
+   * Returns the number of items in the list.
+   * @returns {number} The number of items in the list.
    */
   length() {
-    return this.elements.length;
+    return this.items.length;
   }
 
   /**
    * Inserts a new element with the given value at the specified index.
    * Shifts the element currently at that index (if any) and any subsequent
-   * elements to the right (adds one to their indices).
+   * items to the right (adds one to their indices).
    * @param {number} index The index at which to insert the new element.
    * @param {*} value The value of the new element to be inserted.
    */
   insert(index, value) {
     ELEMENTS_REMOVED = 0;
-    this.elements.splice(index, ELEMENTS_REMOVED, value);
+    this.items.splice(index, ELEMENTS_REMOVED, value);
   }
 
   /**
    * Removes the element at the specified index.
-   * Shifts any subsequent elements to the left (subtracts one from their indices).
+   * Shifts any subsequent items to the left (subtracts one from their indices).
    * @param {number} index The index of the element to be removed.
    */
   delete(index) {
-    this.elements.splice(index, 1);
+    this.items.splice(index, 1);
   }
 
   /**
@@ -64,7 +64,7 @@ class LinearList {
    */
   find(value) {
     for (let index = 0; index < this.length(); index++) {
-      if (this.elements[index] === value) {
+      if (this.items[index] === value) {
         return index;
       }
     }
@@ -95,9 +95,9 @@ class LinearList {
    * @returns {Array} The new concatenated array.
    */
   concatenate(arrayToConcatenate) {
-    this.elements = this.elements.concat(arrayToConcatenate);
-    return this.elements;
+    this.items = this.items.concat(arrayToConcatenate);
+    return this.items;
   }
 }
 
-module.exports = LinearList;
+module.exports = { LinearList };

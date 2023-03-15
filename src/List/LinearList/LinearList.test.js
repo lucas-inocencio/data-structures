@@ -1,5 +1,5 @@
 const { expect, it, describe } = require("../../../test/unit_test.js");
-const LinearList = require("./LinearList.js");
+const { LinearList } = require("./LinearList.js");
 
 describe("LinearList Class test", () => {
   it("should create empty linear list", () => {
