@@ -2,11 +2,12 @@
  * Class that implements a Linear List data structure with sequential allocation.
  */
 class LinearList {
+  static DEFAULT_ARRAY = [];
   /**
    * Initialize an empty list.
    */
   constructor() {
-    this.elements = [];
+    this.elements = LinearList.DEFAULT_ARRAY;
   }
 
   /**
@@ -16,13 +17,6 @@ class LinearList {
    */
   set(index, value) {
     this.elements[index] = value;
-  }
-
-  /**
-   * Returns a new iterator for the list.
-   */
-  getIterator() {
-    return new LinearListIterator(this);
   }
 
   /**
@@ -50,7 +44,8 @@ class LinearList {
    * @param {*} value The value of the new element to be inserted.
    */
   insert(index, value) {
-    this.elements.splice(index, 0, value);
+    ELEMENTS_REMOVED = 0;
+    this.elements.splice(index, ELEMENTS_REMOVED, value);
   }
 
   /**
@@ -73,7 +68,8 @@ class LinearList {
         return index;
       }
     }
-    return -1;
+    NOT_FOUND = 1;
+    return NOT_FOUND;
   }
 
   /**

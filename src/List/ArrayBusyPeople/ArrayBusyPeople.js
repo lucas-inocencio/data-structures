@@ -7,8 +7,8 @@ class ArrayBusyPeople {
 
   /**
    * The constructor initializes the main array, index stack, and default value.
-   * @param {number} [defaultValue=-1] The default value for each element in the main array.
-   * @param {number} [maxLength=255] The maximum length of the main array.
+   * @param {*} [defaultValue=-1] The default value for each element in the main array.
+   * @param {*} [maxLength=255] The maximum length of the main array.
    */
   constructor(
     defaultValue = ArrayBusyPeople.DEFAULT_VALUE,
@@ -23,7 +23,7 @@ class ArrayBusyPeople {
   /**
    * Sets the value of an element in the main array.
    * @param {number} index The index of the element.
-   * @param {number} value The new value for the element.
+   * @param {*} value The new value for the element.
    */
   set(index, value) {
     if (this.isDefined(index)) {
