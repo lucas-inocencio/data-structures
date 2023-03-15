@@ -6,6 +6,6 @@ class SinglyLinkedList {
     this.value = value;
     this.next = null;
   }
-};
+}
 
 module.exports = SinglyLinkedList;

@@ -1,5 +1,5 @@
 const { expect, describe, it } = require("../../../test/unit_test.js");
-const  ArrayBusyPeople  = require("./ArrayBusyPeople.js");
+const ArrayBusyPeople = require("./ArrayBusyPeople.js");
 
 describe("ArrayBusyPeople", () => {
   describe("set()", () => {
