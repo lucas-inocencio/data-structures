@@ -2,12 +2,12 @@
  * Class that implements a Linear List data structure with sequential allocation.
  */
 class LinearList {
-  static DEFAULT_ARRAY = [];
   /**
    * Initialize an empty list.
    */
   constructor() {
-    this.items = LinearList.DEFAULT_ARRAY;
+    const EMPTY_ARRAY = [];
+    this.elements = EMPTY_ARRAY;
   }
 
   /**
@@ -16,7 +16,7 @@ class LinearList {
    * @param {*} value The new value for the element.
    */
   set(index, value) {
-    this.items[index] = value;
+    this.elements[index] = value;
   }
 
   /**
@@ -25,36 +25,36 @@ class LinearList {
    * @returns {*} The value of the element.
    */
   get(index) {
-    return this.items[index];
+    return this.elements[index];
   }
 
   /**
-   * Returns the number of items in the list.
-   * @returns {number} The number of items in the list.
+   * Returns the number of elements in the list.
+   * @returns {number} The number of elements in the list.
    */
   length() {
-    return this.items.length;
+    return this.elements.length;
   }
 
   /**
    * Inserts a new element with the given value at the specified index.
    * Shifts the element currently at that index (if any) and any subsequent
-   * items to the right (adds one to their indices).
+   * elements to the right (adds one to their indices).
    * @param {number} index The index at which to insert the new element.
    * @param {*} value The value of the new element to be inserted.
    */
   insert(index, value) {
-    ELEMENTS_REMOVED = 0;
-    this.items.splice(index, ELEMENTS_REMOVED, value);
+    const ELEMENTS_REMOVED = 0;
+    this.elements.splice(index, ELEMENTS_REMOVED, value);
   }
 
   /**
    * Removes the element at the specified index.
-   * Shifts any subsequent items to the left (subtracts one from their indices).
+   * Shifts any subsequent elements to the left (subtracts one from their indices).
    * @param {number} index The index of the element to be removed.
    */
   delete(index) {
-    this.items.splice(index, 1);
+    this.elements.splice(index, 1);
   }
 
   /**
@@ -64,7 +64,7 @@ class LinearList {
    */
   find(value) {
     for (let index = 0; index < this.length(); index++) {
-      if (this.items[index] === value) {
+      if (this.elements[index] === value) {
         return index;
       }
     }
@@ -95,8 +95,8 @@ class LinearList {
    * @returns {Array} The new concatenated array.
    */
   concatenate(arrayToConcatenate) {
-    this.items = this.items.concat(arrayToConcatenate);
-    return this.items;
+    this.elements = this.elements.concat(arrayToConcatenate);
+    return this.elements;
   }
 }
 
