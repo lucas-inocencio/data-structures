@@ -364,3 +364,5 @@ class HashTable {
     else return this.doubleHashDelete(x);
   }
 }
+
+module.exports = { HashTable };
