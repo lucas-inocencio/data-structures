@@ -45,28 +45,28 @@ describe("Queue", () => {
       expect(queue.dequeue()).toEqual(undefined);
     });
   });
-  describe("peek()", () => {
+  describe("getFront()", () => {
     it("should return the front element of the queue without removing it", () => {
       queue.enqueue(1);
       queue.enqueue(2);
       queue.enqueue(3);
 
-      expect(queue.peek()).toEqual(1);
-      expect(queue.peek()).toEqual(1);
+      expect(queue.getFront()).toEqual(1);
+      expect(queue.getFront()).toEqual(1);
       expect(queue.size()).toEqual(3);
     });
 
     it("should return undefined when peeking an empty queue", () => {
-      expect(queue.peek()).toEqual(undefined);
+      expect(queue.getFront()).toEqual(undefined);
     });
   });
-  describe("clear()", () => {
+  describe("deleteAll()", () => {
     it("should clear the queue", () => {
       queue.enqueue(1);
       queue.enqueue(2);
       queue.enqueue(3);
 
-      queue.clear();
+      queue.deleteAll();
 
       expect(queue.size()).toEqual(0);
       expect(queue.isEmpty()).toEqual(true);

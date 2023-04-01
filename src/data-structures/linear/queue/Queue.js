@@ -38,7 +38,7 @@ class Queue {
    * Returns the front element of the queue without removing it.
    * @return {*} - The front element of the queue.
    */
-  peek() {
+  getFront() {
     if (this.isEmpty()) {
       return undefined;
     }
@@ -64,7 +64,7 @@ class Queue {
   /**
    * Removes all elements from the queue.
    */
-  clear() {
+  deleteAll() {
     this.elements = {};
     this.count = 0;
     this.frontIndex = 0;

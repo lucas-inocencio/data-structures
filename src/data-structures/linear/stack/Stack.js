@@ -37,7 +37,7 @@ class Stack {
    * Returns the element at the top of the stack without removing it.
    * @return {*} - The element at the top of the stack.
    */
-  peek() {
+  getTop() {
     if (this.isEmpty()) {
       return undefined;
     }
@@ -55,7 +55,7 @@ class Stack {
   /**
    * Removes all elements from the stack.
    */
-  clear() {
+  deleteAll() {
     this.elements = {};
     this.size = 0;
   }

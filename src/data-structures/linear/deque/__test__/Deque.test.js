@@ -12,79 +12,79 @@ describe("Deque", () => {
     deque = new Deque();
   });
 
-  describe("addFront", () => {
+  describe("insertFront", () => {
     it("should add an element to the front of the deque", () => {
-      deque.addFront(1);
-      deque.addFront(2);
+      deque.insertFront(1);
+      deque.insertFront(2);
       expect(deque.toString()).toEqual("2,1");
     });
   });
 
-  describe("addBack()", () => {
+  describe("insertBack()", () => {
     it("should add an element to the back of the deque", () => {
-      deque.addBack(1);
-      deque.addBack(2);
+      deque.insertBack(1);
+      deque.insertBack(2);
       expect(deque.toString()).toEqual("1,2");
     });
   });
 
-  describe("removeFront()", () => {
-    it("should remove and return the front element of the deque", () => {
-      deque.addBack(1);
-      deque.addBack(2);
-      expect(deque.removeFront()).toEqual(1);
+  describe("deleteFront()", () => {
+    it("should delete and return the front element of the deque", () => {
+      deque.insertBack(1);
+      deque.insertBack(2);
+      expect(deque.deleteFront()).toEqual(1);
       expect(deque.toString()).toEqual("2");
     });
 
     it("should return undefined if the deque is empty", () => {
-      expect(deque.removeFront()).toBeUndefined();
+      expect(deque.deleteFront()).toBeUndefined();
     });
   });
 
-  describe("removeBack()", () => {
-    it("should remove and return the back element of the deque", () => {
-      deque.addBack(1);
-      deque.addBack(2);
-      expect(deque.removeBack()).toEqual(2);
+  describe("deleteBack()", () => {
+    it("should delete and return the back element of the deque", () => {
+      deque.insertBack(1);
+      deque.insertBack(2);
+      expect(deque.deleteBack()).toEqual(2);
       expect(deque.toString()).toEqual("1");
     });
 
     it("should return undefined if the deque is empty", () => {
-      expect(deque.removeBack()).toBeUndefined();
+      expect(deque.deleteBack()).toBeUndefined();
     });
   });
 
-  describe("peekFront()", () => {
+  describe("getFront()", () => {
     it("should return the front element of the deque without removing it", () => {
-      deque.addBack(1);
-      deque.addBack(2);
-      expect(deque.peekFront()).toEqual(1);
+      deque.insertBack(1);
+      deque.insertBack(2);
+      expect(deque.getFront()).toEqual(1);
       expect(deque.toString()).toEqual("1,2");
     });
 
     it("should return undefined if the deque is empty", () => {
-      expect(deque.peekFront()).toBeUndefined();
+      expect(deque.getFront()).toBeUndefined();
     });
   });
 
-  describe("peekBack()", () => {
+  describe("getBack()", () => {
     it("should return the back element of the deque without removing it", () => {
-      deque.addBack(1);
-      deque.addBack(2);
-      expect(deque.peekBack()).toEqual(2);
+      deque.insertBack(1);
+      deque.insertBack(2);
+      expect(deque.getBack()).toEqual(2);
       expect(deque.toString()).toEqual("1,2");
     });
 
     it("should return undefined if the deque is empty", () => {
-      expect(deque.peekBack()).toBeUndefined();
+      expect(deque.getBack()).toBeUndefined();
     });
   });
 
   describe("size()", () => {
     it("should return the number of elements in the deque", () => {
       expect(deque.size()).toEqual(0);
-      deque.addBack(1);
-      deque.addBack(2);
+      deque.insertBack(1);
+      deque.insertBack(2);
       expect(deque.size()).toEqual(2);
     });
   });
@@ -95,16 +95,16 @@ describe("Deque", () => {
     });
 
     it("should return false if the deque is not empty", () => {
-      deque.addBack(1);
+      deque.insertBack(1);
       expect(deque.isEmpty()).toBe(false);
     });
   });
 
-  describe("clear()", () => {
-    it("should remove all elements from the deque", () => {
-      deque.addBack(1);
-      deque.addBack(2);
-      deque.clear();
+  describe("deleteAll()", () => {
+    it("should delete all elements from the deque", () => {
+      deque.insertBack(1);
+      deque.insertBack(2);
+      deque.deleteAll();
       expect(deque.size()).toEqual(0);
       expect(deque.isEmpty()).toBe(true);
       expect(deque.toString()).toEqual("");
@@ -116,8 +116,8 @@ describe("Deque", () => {
       expect(deque.toString()).toEqual("");
     });
     it("should return a string representation of the deque", () => {
-      deque.addBack(1);
-      deque.addBack(2);
+      deque.insertBack(1);
+      deque.insertBack(2);
       expect(deque.toString()).toBe("1,2");
     });
   });

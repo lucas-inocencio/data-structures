@@ -15,9 +15,9 @@ class Deque {
    * Adds an element to the front of the Deque.
    * @param {*} element - The element to add.
    */
-  addFront(element) {
+  insertFront(element) {
     if (this.isEmpty()) {
-      this.addBack(element);
+      this.insertBack(element);
     } else if (this.frontIndex > 0) {
       this.frontIndex--;
       this.elements[this.frontIndex] = element;
@@ -32,10 +32,10 @@ class Deque {
   }
 
   /**
-   * Adds an element to the back of the Deque.
+   * Adds an element to the Back of the Deque.
    * @param {*} element - The element to add.
    */
-  addBack(element) {
+  insertBack(element) {
     this.elements[this.count] = element;
     this.count++;
   }
@@ -44,7 +44,7 @@ class Deque {
    * Removes and returns the front element of the Deque.
    * @returns {*} - The front element of the Deque, or undefined if the Deque is empty.
    */
-  removeFront() {
+  deleteFront() {
     if (this.isEmpty()) {
       return undefined;
     }
@@ -55,10 +55,10 @@ class Deque {
   }
 
   /**
-   * Removes and returns the back element of the Deque.
-   * @returns {*} - The back element of the Deque, or undefined if the Deque is empty.
+   * Removes and returns the Back element of the Deque.
+   * @returns {*} - The Back element of the Deque, or undefined if the Deque is empty.
    */
-  removeBack() {
+  deleteBack() {
     if (this.isEmpty()) {
       return undefined;
     }
@@ -72,7 +72,7 @@ class Deque {
    * Returns the front element of the Deque without removing it.
    * @returns {*} - The front element of the Deque, or undefined if the Deque is empty.
    */
-  peekFront() {
+  getFront() {
     if (this.isEmpty()) {
       return undefined;
     }
@@ -80,10 +80,10 @@ class Deque {
   }
 
   /**
-   * Returns the back element of the Deque without removing it.
-   * @returns {*} - The back element of the Deque, or undefined if the Deque is empty.
+   * Returns the Back element of the Deque without removing it.
+   * @returns {*} - The Back element of the Deque, or undefined if the Deque is empty.
    */
-  peekBack() {
+  getBack() {
     if (this.isEmpty()) {
       return undefined;
     }
@@ -109,7 +109,7 @@ class Deque {
   /**
    * Removes all elements from the queue.
    */
-  clear() {
+  deleteAll() {
     this.elements = {};
     this.count = 0;
     this.frontIndex = 0;

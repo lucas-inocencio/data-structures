@@ -30,13 +30,13 @@ describe("Stack", () => {
       expect(stack.pop()).toBeUndefined();
     });
   });
-  describe("peek()", () => {
+  describe("getTop()", () => {
     it("returns the element at the top of the stack without removing it", () => {
       stack.push(1);
       stack.push(2);
 
-      expect(stack.peek()).toBe(2);
-      expect(stack.peek()).toBe(2);
+      expect(stack.getTop()).toBe(2);
+      expect(stack.getTop()).toBe(2);
     });
   });
 
@@ -52,11 +52,11 @@ describe("Stack", () => {
     });
   });
 
-  describe("clear()", () => {
+  describe("deleteAll()", () => {
     it("removes all elements from the stack", () => {
       stack.push(1);
       stack.push(2);
-      stack.clear();
+      stack.deleteAll();
 
       expect(stack.size).toBe(0);
       expect(stack.peek()).toBeUndefined();

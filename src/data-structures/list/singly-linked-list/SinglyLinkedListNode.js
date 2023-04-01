@@ -1,11 +1,11 @@
 /**
  * Class that implement a node of singly linked list data structure.
  */
-class SinglyLinkedList {
+class SinglyLinkedListNode {
   constructor(value) {
     this.value = value;
     this.next = null;
   }
 }
 
-module.exports = SinglyLinkedList;
+module.exports = { SinglyLinkedListNode };
