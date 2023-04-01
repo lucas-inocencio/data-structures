@@ -1,4 +1,4 @@
-const SinglyLinkedListNode = require("./SinglyLinkedListNode.js");
+const { SinglyLinkedListNode } = require("./SinglyLinkedListNode.js");
 
 /**
  * Class that implement a singly linked list data structure.
@@ -13,41 +13,53 @@ class SinglyLinkedList {
   }
 
   /**
-   * 
+   * Get the element at the specified index.
+   * @param {number} index - The index of the element to get.
+   * @returns {SinglyLinkedList} The node at the index if exist, undefined otherwise.
    */
-  getElementAt(index) {
-    if (index >= 0 && index <= this.count) {
-    let node = this.head;
-    for (let i = 0; i < index && node != null; i++) {
-    node = node.next;
-    }
-    return node;
+  get(index) {
+    if (index >= 0 && index < this.count) {
+      let node = this.head;
+      for (let i = 0; i < index && node != null; i++) {
+        node = node.next;
+      }
+      return node;
     }
     return undefined;
+  }
+
+  /**
+   * Set the value of the elemnent at the specified index.
+   * @param {number} index - The index of the element to set.
+   * @param {*} value - The new value to be assign.
+   * @returns nothing.
+   */
+  set(index, value) {
+    if (index >= 0 && index <= this.count) {
+      let node = this.head;
+      for (let i = 0; i < index && node != null; i++) {
+        node = node.next;
+      }
+      node.value = value;
     }
-    
-
-  /**
-   * 
-   */
-  set() {
-
   }
 
   /**
-   * 
+   * @returns The current size of this Linked List.
    */
-  length() {
-
+  size() {
+    return this.count;
   }
 
   /**
-   * 
+   * Insert a new node in the start of the linked list with specified value.
+   * @param {number} value - The value of the new node.
+   * @returns nothing.
    */
-  push(element) {
-    const node = new SinglyLinkedListNode(element);
+  insert(value) {
+    const node = new SinglyLinkedListNode(value);
     let current;
-    if (this.head == null) { 
+    if (this.head == null) {
       this.head = node;
     } else {
       current = this.head;
@@ -60,41 +72,26 @@ class SinglyLinkedList {
   }
 
   /**
-   * 
+   * Delete a node in the specified index.
+   * @param {number} index - The index of the node.
+   * @returns nothing.
    */
-  removeAt(index) {
+  delete(index) {
     if (index >= 0 && index < this.count) {
       let current = this.head;
       if (index === 0) {
         this.head = current.next;
       } else {
-          let previous;
-          for (let i = 0; i < index; i++) {
-            previous = current;
-            current = current.next;
-          }
-          previous.next = current.next;
+        let previous;
+        for (let i = 0; i < index; i++) {
+          previous = current;
+          current = current.next;
         }
+        previous.next = current.next;
+      }
       this.count--;
-      return current.element;
     }
-    return undefined;
-  }
-    
-
-  /**
-   * 
-   */
-  find() {
-
-  }
-
-  /**
-   * 
-   */
-  () {
-
   }
 }
 
-module.exports = SinglyLinkedList;
+module.exports = { SinglyLinkedList };
