@@ -1,48 +1,61 @@
-//
+const { BinaryTreeNode } = require("./BinaryTreeNode");
+
+/**
+ * Represents a binary tree data structure.
+ *
+ * @class BinaryTree
+ */
 class BinaryTree {
-  // Functions to be implemented
-  // init()
-  // push(i)
-  // pop()
-
-  //
+  /**
+   * Creates an instance of BinaryTree.
+   * @constructor
+   * @param {BinaryTreeNode} [node=null] - The root node of the binary tree.
+   */
   constructor(node = null) {
-    this.node = node;
+    this.root = node;
   }
 
-  //
-  *preorder() {
-    if (this.node) {
-      yield this;
-      yield* this.node.left.preorder();
-      yield* this.node.right.preorder();
+  /**
+   * Returns a generator that performs a preorder traversal of the binary tree.
+   * @generator
+   * @param {BinaryTreeNode} [node=this.root] - The node to start the traversal from.
+   * @yields {*} The value of each visited node in preorder.
+   */
+  *preorder(node = this.root) {
+    if (node) {
+      yield node.value;
+      yield* this.preorder(node.left);
+      yield* this.preorder(node.right);
     }
   }
 
-  //
-  *inorder() {
-    if (this.node) {
-      yield* this.node.left.inorder();
-      yield this;
-      yield* this.node.right.inorder();
+  /**
+   * Returns a generator that performs an inorder traversal of the binary tree.
+   * @generator
+   * @param {BinaryTreeNode} [node=this.root] - The node to start the traversal from.
+   * @yields {*} The value of each visited node in inorder.
+   */
+  *inorder(node = this.root) {
+    if (node) {
+      yield* this.inorder(node.left);
+      yield node.value;
+      yield* this.inorder(node.right);
     }
   }
 
-  //
-  *postorder() {
-    if (this.node) {
-      yield* this.node.left.postorder();
-      yield* this.node.right.postorder();
-      yield this;
+  /**
+   * Returns a generator that performs a postorder traversal of the binary tree.
+   * @generator
+   * @param {BinaryTreeNode} [node=this.root] - The node to start the traversal from.
+   * @yields {*} The value of each visited node in postorder.
+   */
+  *postorder(node = this.root) {
+    if (node) {
+      yield* this.postorder(node.left);
+      yield* this.postorder(node.right);
+      yield node.value;
     }
   }
 }
 
-//
-function BT(...args) {
-  if (args.length == 0) return new BinaryTree();
-  return new BinaryTree(new BinaryTreeNode(...args));
-}
-
-//
-console.log(BT);
+module.exports = { BinaryTree };
