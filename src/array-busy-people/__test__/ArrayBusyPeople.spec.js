@@ -1,7 +1,6 @@
-const Jasmine = require("jasmine");
-const jasmine = new Jasmine();
-jasmine.loadConfigFile("spec/support/jasmine.json");
-jasmine.execute();
+const SpecReporter = require("jasmine-spec-reporter").SpecReporter;
+jasmine.getEnv().clearReporters();
+jasmine.getEnv().addReporter(new SpecReporter());
 
 const { ArrayBusyPeople } = require("../ArrayBusyPeople.js");
 
@@ -11,6 +10,7 @@ describe("ArrayBusyPeople", () => {
   beforeEach(() => {
     ABP = new ArrayBusyPeople();
   });
+
   describe("set()", () => {
     it("sets the value of an element in the array", () => {
       ABP.set(0, 1);
