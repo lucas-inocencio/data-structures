@@ -58,4 +58,4 @@ class BinaryTree {
   }
 }
 
-module.exports = { BinaryTree };
+module.exports = { BinaryTree, BinaryTreeNode };

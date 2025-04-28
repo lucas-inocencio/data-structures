@@ -1,4 +1,10 @@
-class BinarySearchTree {
+const { BinaryTree, BinaryTreeNode } = require("../binary-tree/BinaryTree");
+
+class BinarySearchTreeNode extends BinaryTreeNode {
+  constructor()
+}
+
+class BinarySearchTree extends BinaryTree {
   constructor(key, value, left = null, right = null) {
     this.key = key;
     this.value = value; // this node's data

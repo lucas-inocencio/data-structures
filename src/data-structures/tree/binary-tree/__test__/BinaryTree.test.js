@@ -3,8 +3,7 @@ const jasmine = new Jasmine();
 jasmine.loadConfigFile("spec/support/jasmine.json");
 jasmine.execute();
 
-const { BinaryTreeNode } = require("../BinaryTreeNode");
-const { BinaryTree } = require("../BinaryTree");
+const { BinaryTree, BinaryTreeNode } = require("../BinaryTree");
 
 describe('BinaryTree', () => {
     let binaryTree;
