@@ -81,7 +81,7 @@ class Queue {
     let objString = `${this.elements[this.frontIndex]}`;
     for (let i = this.frontIndex + 1; i < this.count; i++) {
       const elementString = `${this.elements[i]}`;
-      objString = `${objString},${elementString}`;
+      objString = `${objString}, ${elementString}`;
     }
     return objString;
   }

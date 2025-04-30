@@ -78,7 +78,7 @@ describe("Queue", () => {
       queue.enqueue(2);
       queue.enqueue(3);
 
-      expect(queue.toString()).toEqual("1,2,3");
+      expect(queue.toString()).toEqual("1, 2, 3");
     });
 
     it("should return an empty string when getting a string representation of an empty queue", () => {
