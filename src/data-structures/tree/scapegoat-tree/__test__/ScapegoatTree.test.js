@@ -1,0 +1,1 @@
+const { ScapegoatTree } = require("../ScapegoatTree.js");

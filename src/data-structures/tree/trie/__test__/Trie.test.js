@@ -1,0 +1,1 @@
+const { Trie } = require("../Trie.js");

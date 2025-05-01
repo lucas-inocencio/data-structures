@@ -1,0 +1,1 @@
+const { SuffixTree } = require("../SuffixTree.js");
