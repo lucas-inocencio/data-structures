@@ -2,7 +2,7 @@
 
 ## Heap
 
-- [ ] BinaryHeap
+- [x] BinaryHeap
 - [ ] FibonacciHeap
 - [ ] SkewHeap
 
