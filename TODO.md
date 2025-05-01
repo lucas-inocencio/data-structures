@@ -8,10 +8,10 @@
 
 ## Linear
 
-- [ ] PriorityQueue
-- [ ] Deque
-- [ ] Queue
-- [ ] Stack
+- [x] PriorityQueue
+- [x] Deque
+- [x] Queue
+- [x] Stack
 
 ## List
 

@@ -1,45 +1,65 @@
 /*
- * A priority queue data structure implemented using a binary heap.
- * The priority queue allows elements to be added with a priority, and the 
- * element with the highest priority is removed first.
- * 
- * The implementation uses a binary heap to efficiently manage the elements.
- * The binary heap is a complete binary tree where each node is less than or equal to its children.
- * This ensures that the element with the highest priority is always at the root of the tree.
- * 
- * The priority queue supports the following operations:
- * - `enqueue`: Adds an element to the queue with a specified priority.
- * - `dequeue`: Removes and returns the element with the highest priority.
- * - `peek`: Returns the element with the highest priority without removing it.
- * - `isEmpty`: Checks if the queue is empty.
- * - `size`: Returns the number of elements in the queue.
- * - `clear`: Removes all elements from the queue.
- * - `toString`: Returns a string representation of the queue.
- * - `print`: Prints the elements of the queue.
- * 
- * The priority queue is implemented using a binary heap, which is a complete binary tree where each node is less than or equal to its children.
-*/
+ * PriorityQueue class implementation
+ * This class implements a priority queue using an array.
+ * Elements are stored in the queue based on their priority.
+ * Lower priority numbers indicate higher priority.
+ */
 class PriorityQueue {
   /*
-    * Creates a new PriorityQueue instance.
-    * The priority queue is implemented using a binary heap.
-    * The elements are stored in an array, where the first element is at index 0.
-    * The parent of an element at index i is at index Math.floor((i - 1) / 2).
-    * The left child of an element at index i is at index 2 * i + 1.
-    * The right child of an element at index i is at index 2 * i + 2.
-  */
-    constructor() {
-    this.elements = [];
+   * Creates a new PriorityQueue instance.
+   */
+  constructor() {
+    this.items = [];
   }
+  /*
+   * Adds an element to the priority queue with a given priority.
+   * @param {*} element - The element to be added.
+   * @param {number} priority - The priority of the element.
+   */
+  enqueue(element, priority) {
+    const queueElement = { element, priority };
+    let added = false;
 
-    /**
-     * Adds an element to the queue with a specified priority.
-     * @param {*} element - The element to be added.
-     * @param {number} priority - The priority of the element.
-     */
-        enqueue(element, priority) {
-        const newNode = { element, priority };
-        this.elements.push(newNode);
-        this.bubbleUp(this.elements.length - 1);
-        }
+    for (let i = 0; i < this.items.length; i++) {
+      if (queueElement.priority < this.items[i].priority) {
+        this.items.splice(i, 0, queueElement);
+        added = true;
+        break;
+      }
+    }
+
+    if (!added) {
+      this.items.push(queueElement);
+    }
+  }
+  /*
+   * Removes and returns the element with the highest priority (lowest priority number).
+   * @return {*} - The removed element.
+   */
+  dequeue() {
+    return this.items.shift();
+  }
+  /*
+   * Returns the front element of the priority queue without removing it.
+   * @return {*} - The front element of the priority queue.
+   */
+  isEmpty() {
+    return this.items.length === 0;
+  }
+  /*
+   * Returns the number of elements in the priority queue.
+   * @return {number} - The number of elements in the priority queue.
+   */
+  size() {
+    return this.items.length;
+  }
+  /*
+   * Returns the front element of the priority queue without removing it.
+   * @return {*} - The front element of the priority queue.
+   */
+  front() {
+    return this.isEmpty() ? undefined : this.items[0];
+  }
 }
+
+module.exports = { PriorityQueue };
